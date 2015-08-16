@@ -1,2 +1,2 @@
-# PAS
+# polyAcode
 predicting polyadenylation sites
