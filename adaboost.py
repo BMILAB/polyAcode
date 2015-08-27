@@ -20,7 +20,8 @@ RATE_LST = [0.01, 0.02, 0.04, 0.08, 0.16, 0.32, 0.64]
 
 
 def main():
-    N = int(sys.argv[1])
+    base_name = sys.argv[1]
+    N = int(sys.argv[2])
     
     data_train = np.load('./data_train.npy')
     data_test = np.load('./data_test.npy')
@@ -54,19 +55,26 @@ def main():
     model = ensemble.AdaBoostClassifier(base_estimator=dt, learning_rate=rate_best, n_estimators=estimator_best, algorithm="SAMME.R")    
     model.fit(X_train, Y_train)
     
-    Y_test_proba = model.predict_proba(X_test)
+    Y_test_proba = model.predict_proba(X_test)[:, 1]
     accuracy = model.score(X_test, Y_test)
-    auc = metrics.roc_auc_score(Y_test, Y_test_proba[:, 1])
-    fpr, tpr, thresholds = metrics.roc_curve(Y_test, Y_test_proba[:, 1])
+    auc = metrics.roc_auc_score(Y_test, Y_test_proba)
+    fpr, tpr, thresholds = metrics.roc_curve(Y_test, Y_test_proba)
      
-    plt.figure(figsize=(10, 8))
-    plt.plot(fpr, tpr, 'b.')
-    plt.title('accuracy = %.1f%%; AUC = %.3f' % (accuracy*100, auc))
-    plt.xlabel('False Positive Rate')
-    plt.ylabel('True Positive Rate')
-    plt.xlim((0, 1))
-    plt.ylim((0, 1))
-    plt.show()
+    np.save(base_name + '_fpr.npy', fpr)
+    np.save(base_name + '_tpr.npy', tpr)
+    outfile = open(base_name + '_results.txt', 'w')
+    outfile.write('accuracy\t' + str(accuracy) + '\n')
+    outfile.write('AUC\t' + str(auc) + '\n')
+    outfile.close()
+     
+#     plt.figure(figsize=(10, 8))
+#     plt.plot(fpr, tpr, 'b.')
+#     plt.title('AdaBoost; accuracy = %.1f%%; AUC = %.3f' % (accuracy*100, auc))
+#     plt.xlabel('False Positive Rate')
+#     plt.ylabel('True Positive Rate')
+#     plt.xlim((0, 1))
+#     plt.ylim((0, 1))
+#     plt.show()
     
 if __name__ == '__main__':
     main()
