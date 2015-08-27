@@ -45,10 +45,10 @@ def main():
                 estimator_best = estimator
                 rate_best = rate
                 
-            print 'n_estimator = %s\tlearning_rate = %s\tcross_validation_accuracy = %.1f%%' % (estimator, rate, accuracy_cv)
+            print 'n_estimator = %s\tlearning_rate = %s\tcross_validation_accuracy = %.1f%%' % (estimator, rate, accuracy_cv*100)
             sys.stdout.flush()
     
-    print 'n_estimator_best = %s\tlearning_rate_best = %s\tcross_validation_accuracy_best = %.1f%%' % (estimator_best, rate_best, accuracy_cv_best)
+    print 'n_estimator_best = %s\tlearning_rate_best = %s\tcross_validation_accuracy_best = %.1f%%' % (estimator_best, rate_best, accuracy_cv_best*100)
     
     model = ensemble.AdaBoostClassifier(base_estimator=dt, learning_rate=rate_best, n_estimators=estimator_best, algorithm="SAMME.R")    
     model.fit(X_train, Y_train)
