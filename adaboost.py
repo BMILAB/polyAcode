@@ -6,6 +6,8 @@ import numpy as np
 from sklearn import ensemble, tree, metrics, cross_validation
 from matplotlib import pyplot as plt
 
+os.system("taskset -p 0xff %d" % os.getpid())
+
 MAX_DEPTH = 4
 MIN_LEAF = 1
 D = 658
