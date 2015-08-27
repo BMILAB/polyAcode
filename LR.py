@@ -30,7 +30,7 @@ def main():
     
     plt.figure(figsize=(10, 8))
     plt.plot(fpr, tpr, 'b.')
-    plt.title('accuracy = %.1f%%; AUC = %.2f' % (accuracy*100, auc))
+    plt.title('accuracy = %.1f%%; AUC = %.3f' % (accuracy*100, auc))
     plt.xlabel('False Positive Rate')
     plt.ylabel('True Positive Rate')
     plt.xlim((0, 1))

@@ -15,8 +15,8 @@ D = 658
 K = 10
 N = 5
 
-ESTIMATOR_LST = [10, 50, 100, 200, 300, 400, 500]
-RATE_LST = [0.01, 0.02, 0.04, 0.08, 0.16, 0.32, 0.64, 1.28]
+ESTIMATOR_LST = [10, 20, 40, 60, 80, 100, 150, 200, 300]
+RATE_LST = [0.001, 0.005, 0.01, 0.02, 0.04, 0.08, 0.16, 0.32, 0.64, 1.28]
 
 
 def main():
@@ -45,10 +45,10 @@ def main():
                 estimator_best = estimator
                 rate_best = rate
                 
-            print 'n_estimator = %s\tlearning_rate = %s\tcross_validation_accuracy = %.2f' % (estimator, rate, accuracy_cv)
+            print 'n_estimator = %s\tlearning_rate = %s\tcross_validation_accuracy = %.1f%%' % (estimator, rate, accuracy_cv)
             sys.stdout.flush()
     
-    print 'n_estimator_best = %s\tlearning_rate_best = %s\tcross_validation_accuracy_best = %.2f' % (estimator_best, rate_best, accuracy_cv_best)
+    print 'n_estimator_best = %s\tlearning_rate_best = %s\tcross_validation_accuracy_best = %.1f%%' % (estimator_best, rate_best, accuracy_cv_best)
     
     model = ensemble.AdaBoostClassifier(base_estimator=dt, learning_rate=rate_best, n_estimators=estimator_best, algorithm="SAMME.R")    
     model.fit(X_train, Y_train)
@@ -60,7 +60,7 @@ def main():
      
     plt.figure(figsize=(10, 8))
     plt.plot(fpr, tpr, 'b.')
-    plt.title('accuracy = %.1f%%; AUC = %.2f' % (accuracy*100, auc))
+    plt.title('accuracy = %.1f%%; AUC = %.3f' % (accuracy*100, auc))
     plt.xlabel('False Positive Rate')
     plt.ylabel('True Positive Rate')
     plt.xlim((0, 1))
