@@ -9,11 +9,10 @@ from matplotlib import pyplot as plt
 C_LST = [0.001,0.01,0.1,1.0,2.0]
 TOL = 0.00001
 D = 658
+K = 10
 
 
 def main():
-    k = int(sys.argv[1])
-    
     data_train = np.load('./data_train.npy')
     data_test = np.load('./data_test.npy')
     X_train = data_train[:, 0:-1]
@@ -21,7 +20,7 @@ def main():
     X_test = data_test[:, 0:-1]
     Y_test = data_test[:, -1]
     
-    model = linear_model.LogisticRegressionCV(cv=k, Cs=C_LST, penalty='l2', dual=False, tol=TOL, verbose=1)
+    model = linear_model.LogisticRegressionCV(cv=K, Cs=C_LST, penalty='l2', dual=False, tol=TOL, verbose=1)
     model.fit(X_train, Y_train)
     
     Y_test_proba = model.predict_proba(X_test)
