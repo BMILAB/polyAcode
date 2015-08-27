@@ -16,7 +16,7 @@ K = 10
 N = 5
 
 ESTIMATOR_LST = [10, 50, 100, 150, 200]
-RATE_LST = [0.01, 0.02, 0.04, 0.08, 0.16, 0.32, 0.64, 1.28]
+RATE_LST = [0.01, 0.02, 0.04, 0.08, 0.16, 0.32, 0.64]
 
 
 def main():
@@ -44,6 +44,7 @@ def main():
             if accuracy_cv > accuracy_cv_best:
                 estimator_best = estimator
                 rate_best = rate
+                accuracy_cv_best = accuracy_cv
                 
             print 'n_estimator = %s\tlearning_rate = %s\tcross_validation_accuracy = %.1f%%' % (estimator, rate, accuracy_cv*100)
             sys.stdout.flush()
