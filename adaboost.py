@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys
+import os
 
 import numpy as np
 from sklearn import ensemble, tree, metrics, cross_validation
