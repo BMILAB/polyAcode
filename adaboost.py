@@ -17,6 +17,8 @@ RATE_LST = [0.01, 0.02, 0.04, 0.08, 0.16, 0.32, 0.64, 1.28]
 
 
 def main():
+    N = int(sys.argv[1])
+    
     data_train = np.load('./data_train.npy')
     data_test = np.load('./data_test.npy')
     X_train = data_train[:, 0:-1]
