@@ -15,8 +15,8 @@ K = 10
 def main():
     base_name = sys.argv[1]
     
-    data_train = np.load('./data_feature_train.npy')
-    data_test = np.load('./data_feature_test.npy')
+    data_train = np.load('./data_features_train.npy')
+    data_test = np.load('./data_features_test.npy')
     X_train = data_train[:, 0:-1]
     Y_train = data_train[:, -1]
     X_test = data_test[:, 0:-1]
