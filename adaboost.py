@@ -54,12 +54,14 @@ def get_subfeature(X, idx_str):
     return X_sub
 
 def main():
-    base_name = sys.argv[1]
-    feature_idx = sys.argv[2]
-    N = int(sys.argv[3])
+    intrain = sys.argv[1]
+    intest = sys.argv[2]
+    base_name = sys.argv[3]
+    feature_idx = sys.argv[4]
+    N = int(sys.argv[5])
     
-    data_train = np.load('./data_features_train.npy')
-    data_test = np.load('./data_features_test.npy')
+    data_train = np.load(intrain)
+    data_test = np.load(intest)
     X_train = data_train[:, 0:-1]
     Y_train = data_train[:, -1]
     X_test = data_test[:, 0:-1]
