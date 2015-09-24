@@ -107,14 +107,14 @@ def main():
     outfile.write('AUC\t' + str(auc) + '\n')
     outfile.close()
      
-    plt.figure(figsize=(10, 8))
-    plt.plot(fpr, tpr, 'b.')
-    plt.title('AdaBoost; accuracy = %.1f%%; AUC = %.3f' % (accuracy*100, auc))
-    plt.xlabel('False Positive Rate')
-    plt.ylabel('True Positive Rate')
-    plt.xlim((0, 1))
-    plt.ylim((0, 1))
-    plt.show()
+#     plt.figure(figsize=(10, 8))
+#     plt.plot(fpr, tpr, 'b.')
+#     plt.title('AdaBoost; accuracy = %.1f%%; AUC = %.3f' % (accuracy*100, auc))
+#     plt.xlabel('False Positive Rate')
+#     plt.ylabel('True Positive Rate')
+#     plt.xlim((0, 1))
+#     plt.ylim((0, 1))
+#     plt.show()
     
 if __name__ == '__main__':
     main()
