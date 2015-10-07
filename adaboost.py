@@ -58,7 +58,8 @@ def main():
     intest = sys.argv[2]
     base_name = sys.argv[3]
     feature_idx = sys.argv[4]
-    N = int(sys.argv[5])
+    K = int(sys.argv[5])
+    N = int(sys.argv[6])
     
     data_train = np.load(intrain)
     data_test = np.load(intest)
