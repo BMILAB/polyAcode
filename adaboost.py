@@ -5,7 +5,6 @@ import os
 
 import numpy as np
 from sklearn import ensemble, tree, metrics, cross_validation
-from matplotlib import pyplot as plt
 
 os.system("taskset -p 0xff %d" % os.getpid())
 
@@ -56,10 +55,9 @@ def get_subfeature(X, idx_str):
 def main():
     intrain = sys.argv[1]
     intest = sys.argv[2]
-    base_name = sys.argv[3]
-    feature_idx = sys.argv[4]
-    K = int(sys.argv[5])
-    N = int(sys.argv[6])
+    feature_idx = sys.argv[3]
+    K = int(sys.argv[4])
+    N = int(sys.argv[5])
     
     data_train = np.load(intrain)
     data_test = np.load(intest)
@@ -91,6 +89,7 @@ def main():
             print 'n_estimator = %s\tlearning_rate = %s\tcross_validation_accuracy = %.1f%%' % (estimator, rate, accuracy_cv*100)
             sys.stdout.flush()
     
+    print '****************************************************************************************'
     print 'n_estimator_best = %s\tlearning_rate_best = %s\tcross_validation_accuracy_best = %.1f%%' % (estimator_best, rate_best, accuracy_cv_best*100)
     
     model = ensemble.AdaBoostClassifier(base_estimator=dt, learning_rate=rate_best, n_estimators=estimator_best, algorithm="SAMME.R")    
@@ -100,22 +99,10 @@ def main():
     accuracy = model.score(X_test_sub, Y_test)
     auc = metrics.roc_auc_score(Y_test, Y_test_proba)
     fpr, tpr, thresholds = metrics.roc_curve(Y_test, Y_test_proba)
-     
-    np.save(base_name + '_fpr.npy', fpr)
-    np.save(base_name + '_tpr.npy', tpr)
-    outfile = open(base_name + '_results.txt', 'w')
-    outfile.write('accuracy\t' + str(accuracy) + '\n')
-    outfile.write('AUC\t' + str(auc) + '\n')
-    outfile.close()
-     
-#     plt.figure(figsize=(10, 8))
-#     plt.plot(fpr, tpr, 'b.')
-#     plt.title('AdaBoost; accuracy = %.1f%%; AUC = %.3f' % (accuracy*100, auc))
-#     plt.xlabel('False Positive Rate')
-#     plt.ylabel('True Positive Rate')
-#     plt.xlim((0, 1))
-#     plt.ylim((0, 1))
-#     plt.show()
+ 
+    print '****************************************************************************************'
+    print 'accuracy : %.1f%%\tAUC : %.3f' % (accuracy*100, auc)
+
     
 if __name__ == '__main__':
     main()
