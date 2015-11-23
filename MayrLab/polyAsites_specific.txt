@@ -1,4 +1,4 @@
-chrom	geneName	strand	location	assigned_tissue_type	Hvalue	AdjustedHvalue
+chrom	geneName	strand	location	assigned_tissue_type	H_prime	H
 chr1	ACBD6	-	180339695	Bcell	0.3190	0.7924
 chr1	ADORA3	-	112025971	Testis+Brain	1.3498	1.7222
 chr1	ADORA3	-	112042056	Brain+Muscle	1.3849	2.1843

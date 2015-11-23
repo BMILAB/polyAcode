@@ -1,4 +1,4 @@
-chrom	geneName	strand	location	assigned_tissue_type	Hvalue	AdjustedHvalue
+chrom	geneName	strand	location	assigned_tissue_type	H_prime	H
 chr1	ACADM	+	76229173	none	2.4793	2.7026
 chr1	ACBD3	-	226332388	none	2.5758	2.8032
 chr1	ACBD3	-	226332645	none	2.5758	2.7775
