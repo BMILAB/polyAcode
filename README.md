@@ -95,6 +95,6 @@ WD-SVM
 ------
 Training WD-SVM model is done by wdsvm.py. For example:
 ```
-$ ./wdsvm.py ./MayrLab/data_seq_train.npy ./MayrLab/data_seq_test.npy 10
+$ ./wdsvm.py ./MayrLab/data_seq_train.txt ./MayrLab/data_seq_test.txt 10
 ```
 In this case, `10` means using 10-fold cross-validation;
