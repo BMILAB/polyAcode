@@ -75,7 +75,7 @@ In this case, `0` is the feature index; `10` means using 10-fold cross-validatio
 
 Logistic Regression
 -------------------
-Training logistic regression model is done lr.py. For example:
+Training logistic regression model is done by lr.py. For example:
 ```
 $ ./lr.py ./MayrLab/data_features_train.npy ./MayrLab/data_features_test.npy 0 10 5
 ```
@@ -84,7 +84,7 @@ which is similarly defined as adaboost.py.
 
 Linear SVM
 ----------
-Training linear SVM model is done lsvm.py. For example:
+Training linear SVM model is done by lsvm.py. For example:
 ```
 $ ./lsvm.py ./MayrLab/data_features_train.npy ./MayrLab/data_features_test.npy 0 10 5
 ```
@@ -93,8 +93,8 @@ which is similarly defined as adaboost.py.
 
 WD-SVM
 ------
-Training WD-SVM model is done wdsvm.py. For example:
+Training WD-SVM model is done by wdsvm.py. For example:
 ```
-$ ./lr.py ./MayrLab/data_seq_train.npy ./MayrLab/data_seq_test.npy 10
+$ ./wdsvm.py ./MayrLab/data_seq_train.npy ./MayrLab/data_seq_test.npy 10
 ```
 In this case, `10` means using 10-fold cross-validation;
