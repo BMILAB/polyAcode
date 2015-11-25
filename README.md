@@ -24,6 +24,8 @@ Prerequisites
 DATA
 ====
 
+**features_annotation.xls** contains detailed annotation about the 658 features.
+
 MayrLab
 -------
 * polyAsites_specific.txt contains the 2276 tissue-specific PASs described in the manuscript. 
@@ -47,8 +49,6 @@ JohnLab
 * data_features_train.npy is the numpy format for training lr.py, lsvm.py adaboost.py. It is a 1000x659 matrix with 1000 corresponding to 500 tissue-specific PASs and 500 tissue-unspecific PASs, and 659 corresponding 658 features and the last column representing the label(+1 for tissue-specific and -1 for tissue-unspecific).
 * data_features_test.npy is the numpy format for testing lr.py lsvm.py adaboost.py. It is a 412x659 matrix with 206 tissue-specific PASs and 206 tissue-unspecific PASs.
 
-
-**features_annotation.xls** contains detailed annotation about the 658 features.
 
 
 
