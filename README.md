@@ -2,12 +2,10 @@ README for polyAcode
 ====================
 
 
-INSTALL
-=======
-
-Prerequisites
--------------
-**Mandatory** 
+PREREQUISITES
+=============
+Mandatory 
+---------
 
 * Python (2.7). [Python 2.7.6](http://www.python.org/download/releases/2.7.6/) is recommended.
 
@@ -17,7 +15,8 @@ Prerequisites
 
 * [Scikit-learn](http://scikit-learn.org/stable/)(>=0.16.1).
 
-**Optional** 
+Optional 
+--------
 * [Shogun](http://www.shogun-toolbox.org/)(>=3.2.0). Required for wdsvm.py
 
 
