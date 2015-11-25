@@ -1,6 +1,7 @@
 README for polyAcode
 ====================
-
+This code base provides all the necessary pieces to reproduce the main results of the polyAcode manuscript. If you have any 
+questions, please email yil8@uci.edu
 
 PREREQUISITES
 =============
