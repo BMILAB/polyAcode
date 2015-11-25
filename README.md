@@ -50,7 +50,51 @@ JohnLab
 * data_features_test.npy is the numpy format for testing lr.py lsvm.py adaboost.py. It is a 412x659 matrix with 206 tissue-specific PASs and 206 tissue-unspecific PASs.
 
 
+TRAINING
+========
+AdaBoost
+--------
+Training AdaBoost model is done by adaboost.py. For example:
+```
+$ ./adaboost.py ./MayrLab/data_features_train.npy ./MayrLab/data_features_test.npy 0 10 5
+```
+In this case, `0` is the feature index; `10` means using 10-fold cross-validation; `5` means using 5 process for training. The complete feature index is given below:
+
+| Index | Definition               | 
+| :-----| :----------------------- | 
+| 0     | All                      |
+| 1     | Conservation level       |
+| 2     | Nucleosome positioning   |
+| 3     | Secondary structure      |
+| 4     | Transcript structure     |
+| 5     | Short 3mer motif         |
+| 6     | PAS signal & variants    |
+| 7     | Known regulators         |
+| 8     | Potential unknown motifs |
 
 
+Logistic Regression
+-------------------
+Training logistic regression model is done lr.py. For example:
+```
+$ ./lr.py ./MayrLab/data_features_train.npy ./MayrLab/data_features_test.npy 0 10 5
+```
+which is similarly defined as adaboost.py.
 
 
+Linear SVM
+----------
+Training linear SVM model is done lsvm.py. For example:
+```
+$ ./lsvm.py ./MayrLab/data_features_train.npy ./MayrLab/data_features_test.npy 0 10 5
+```
+which is similarly defined as adaboost.py.
+
+
+WD-SVM
+------
+Training WD-SVM model is done wdsvm.py. For example:
+```
+$ ./lr.py ./MayrLab/data_seq_train.npy ./MayrLab/data_seq_test.npy 10
+```
+In this case, `10` means using 10-fold cross-validation;
